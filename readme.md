@@ -6,7 +6,11 @@ MYSQL_USER=yourmysqlhuser
 MYSQL_PASSWORD=yourmysqlhpassword
 MYSQL_PORT=yourmysqlport
 MYSQL_DB=yourmysqlDB
-MYSQL_IMPORT_TO_TABLE=yourmysqltable
+PSQL_HOST=yourpysqlhost
+PSQL_USER=yourpysqluser
+PSQL_PORT=yourpysqlport
+PSQL_DB=yourpysqldb
+IMPORT_TO_TABLE=yourmysqltable
 CSV_DELIMETER=yourcsvdelimeter
 CSV_DIRECTORY=yourcsvlocation
 ```
@@ -16,13 +20,18 @@ CSV_DIRECTORY=yourcsvlocation
     ```
     git pull https://github.com/yosephfernando/importtosqlfromcsv
     ```
-2. Make importtomysql.sh executeable
+2. Make importtomysql.sh and importtopsql.sh executeable
     ```
     chmod +x importtomysql.sh
+    chmod +x importtopsql.sh
     ```
-3. Execute importtomysql.sh
+3. Execute importtomysql.sh 
     ```
     ./importtomysql.sh
+    ```
+4. Execute importtopsql.sh 
+    ```
+    ./importtopsql.sh
     ```
 *Note : Don't forget to put your CSV file in datacsv folder before run the command*
 

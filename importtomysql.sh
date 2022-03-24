@@ -5,7 +5,7 @@ eval "$(grep ^MYSQL_USER= .env)"
 eval "$(grep ^MYSQL_PASSWORD= .env)"
 eval "$(grep ^MYSQL_DB= .env)"
 eval "$(grep ^MYSQL_HOST= .env)"
-eval "$(grep ^MYSQL_IMPORT_TO_TABLE= .env)"
+eval "$(grep ^IMPORT_TO_TABLE= .env)"
 eval "$(grep ^CSV_DELIMETER= .env)"
 eval "$(grep ^CSV_DIRECTORY= .env)"
 
@@ -14,10 +14,10 @@ for entry in "$CSV_DIRECTORY"/*
 do
   fileName=$entry
 done
-
+echo $fileName
 echo "START IMPORT !!!"
 mysql --user $MYSQL_USER --host $MYSQL_HOST --port $MYSQL_PORT --database $MYSQL_DB -p$MYSQL_PASSWORD --local-infile=1 <<showtbl
-CREATE TABLE IF NOT EXISTS $MYSQL_IMPORT_TO_TABLE (
+CREATE TABLE IF NOT EXISTS $IMPORT_TO_TABLE (
     msisdn VARCHAR(100),
     user VARCHAR(100),
     imei VARCHAR(100),
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS $MYSQL_IMPORT_TO_TABLE (
 );
 
 LOAD DATA LOCAL INFILE './$fileName' 
-INTO TABLE $MYSQL_IMPORT_TO_TABLE
+INTO TABLE $IMPORT_TO_TABLE
 FIELDS TERMINATED BY '$CSV_DELIMETER' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
