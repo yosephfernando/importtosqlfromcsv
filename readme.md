@@ -14,7 +14,7 @@ CSV_DIRECTORY=yourcsvlocation
 ## How to run ##
 1. Pull scripts from this github repository
     ```
-    git pull
+    git pull https://github.com/yosephfernando/importtosqlfromcsv
     ```
 2. Make importtomysql.sh executeable
     ```
